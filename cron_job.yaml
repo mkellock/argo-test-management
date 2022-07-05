@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: op-4321
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+            containers:
+                - name: alpine
+                  image: alpine:3.16.0
+                  command: ['/bin/sh', '-c', 'echo', "I''m a single job"]
+                  resources:
+                      limits:
+                          cpu: '250m'
+                          memory: '100Mi'
+            restartPolicy: OnFailure
