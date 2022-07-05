@@ -9,8 +9,6 @@ spec:
             containers:
                 - name: alpine
                   image: alpine:3.16.0
-                  command: ['/bin/sh']
-                  args: ['-c', 'echo', "I''m a single job"]
                   resources:
                       limits:
                           cpu: '250m'
