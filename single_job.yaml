@@ -1,15 +1,24 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-    name: op-1234-2
+    name: op-1234
     namespace: astute
 spec:
-    containers:
-        - name: alpine
-          image: alpine:3.16.0
-          command: ['/bin/sh']
-          args: ['-c', 'echo', "I''m a single job"]
-          resources:
-              limits:
-                  cpu: '250m'
-                  memory: '100Mi'
+    replicas: 1
+    selector:
+        matchLabels:
+            app: op-1234
+    template:
+        metadata:
+            labels:
+                app: op-1234
+        spec:
+            containers:
+                - name: alpine
+                  image: alpine:3.16.0
+                  command: ['/bin/sh']
+                  args: ['-c', 'echo', "I''m a single job"]
+                  resources:
+                      limits:
+                          cpu: '250m'
+                          memory: '100Mi'
