@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-    name: op-1234-2
+    name: op-1234-3
     namespace: astute
 spec:
     ttlSecondsAfterFinished: 360
@@ -11,6 +11,7 @@ spec:
                 - name: alpine
                   image: alpine:3.16.0
                   command: ['/bin/sh', '-c', 'echo', "I''m a single job"]
+                  args: ['-c', 'echo', "I''m a single job"]
                   resources:
                       limits:
                           cpu: '250m'
