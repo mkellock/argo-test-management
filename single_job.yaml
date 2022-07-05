@@ -1,17 +1,10 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Job
 metadata:
     name: op-1234
     namespace: astute
 spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: op-1234
     template:
-        metadata:
-            labels:
-                app: op-1234
         spec:
             containers:
                 - name: alpine
@@ -22,3 +15,4 @@ spec:
                       limits:
                           cpu: '250m'
                           memory: '100Mi'
+            restartPolicy: Never
