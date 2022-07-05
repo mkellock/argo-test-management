@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-    name: op-1234
+    name: op-1234-2
     namespace: astute
 spec:
     containers:
