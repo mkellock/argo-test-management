@@ -10,8 +10,8 @@ spec:
         spec:
             containers:
                 - name: some-job
-                  image: busybox:1.28
-                  args: [/bin/sh, -c, 'i=0; while [ "$i" -le "10" ]; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done']
+                  image: alpine:3.16.0
+                  args: [/bin/sh, -c, 'i=1; while [ "$i" -le "10" ]; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done']
                   resources:
                       limits:
                           cpu: '250m'
