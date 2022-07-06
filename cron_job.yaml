@@ -9,7 +9,7 @@ spec:
       template:
         spec:
             containers:
-                - name: some_job
+                - name: some-job
                   image: busybox:1.28
                   args: [/bin/sh, -c, 'i=0; while [ "$i" -le "10" ]; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done']
                   resources:
