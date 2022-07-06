@@ -8,10 +8,9 @@ spec:
     template:
         spec:
             containers:
-                - name: alpine
-                  image: alpine:3.16.0
-                  command: ['/bin/sh', '-c', 'echo', "I''m a single job"]
-                  args: ['-c', 'echo', "I''m a single job"]
+                - name: some_job
+                  image: busybox:1.28
+                  args: [/bin/sh, -c, 'i=0; while [ "$i" -le "10" ]; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done']
                   resources:
                       limits:
                           cpu: '250m'
